@@ -55,8 +55,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     //navigation3
-    implementation(libs.androidx.navigation3.runtime)
-    implementation(libs.androidx.navigation3.ui)
+    //implementation(libs.androidx.navigation3.runtime)
+    //implementation(libs.androidx.navigation3.ui)
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha02")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha02")
 
     //serialization
     implementation(libs.kotlinx.serialization.core)
