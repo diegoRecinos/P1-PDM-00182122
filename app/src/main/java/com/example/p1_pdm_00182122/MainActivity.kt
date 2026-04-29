@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.p1_pdm_00182122.ui.theme.P1PDM00182122Theme
-import com.pdm0126.p1_resources.App
+import com.example.p1_pdm_00182122.App
 
 
 class MainActivity : ComponentActivity() {

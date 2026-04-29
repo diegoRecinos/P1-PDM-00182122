@@ -25,10 +25,10 @@ fun HomeScreen(onNavigate: () -> Unit) {
     val itemList = List(20) { index ->
         Post(
             id = index,
-            title = "Noticia #$index",
-            description = "Esta es la descripción detallada del post informativo número $index. Usando el modelo de datos Post.",
-            category = if (index % 2 == 0) "Tecnología" else "Ciencia",
-            time = "Hace $index min"
+            title = "n #$index",
+            description = "n $index. n.",
+            category = if (index % 2 == 0) "n" else "n",
+            time = "n $index n"
         )
     }
 
@@ -37,7 +37,7 @@ fun HomeScreen(onNavigate: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Feed de Noticias",
+            text = "n",
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(16.dp)
         )
