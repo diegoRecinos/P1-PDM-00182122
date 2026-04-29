@@ -1,56 +1,49 @@
-package com.pdm0126.p1_resources
+package com.example.p1_pdm_00182122
 
-import Menu
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
 //import androidx.navigation.compose.rememberNavController
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import coil3.compose.AsyncImage
 import com.example.p1_pdm_00182122.ui.components.TopBar
+import com.example.p1_pdm_00182122.ui.screens.HomeScreen
 import com.example.p1_pdm_00182122.ui.screens.Routes
-
-//import com.example.p1_pdm_00182122.ui.components.TopBar
-
-import com.example.p1_pdm_00182122.ui.screens.Menu
-//import com.example.p1_pdm_00182122.ui.screens.Routes
+import com.example.p1_pdm_00182122.ui.screens.Screen1
 
 
 @Composable
-fun App() {
-
-    val backStack = rememberNavBackStack(Routes.Menu)
+fun App(modifier: Modifier = Modifier){
+    //1. creamos el backstack iniciando en home
+    val backStack = rememberNavBackStack(Routes.Home)
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = { TopBar(title = "Nav3") },
+        topBar = { TopBar(title = "Nav3 App") },
+
     ) { innerPadding ->
 
+        //2. NavDisplay es el contenedor que renderiza las pantallas
         NavDisplay(
             backStack = backStack,
             modifier = Modifier.padding(innerPadding),
-            onBack = { backStack.removeLastOrNull() },
+            onBack = { backStack.removeLastOrNull() }, //maneja boton de atras
             entryProvider = entryProvider {
-
-                entry<Routes.Menu> {
-                    Menu(onNavigate = { backStack.add(Routes.Menu) })
+                //3. Mapear cada objeto de Routes.kt a un composable
+                entry<Routes.Home> {
+                    HomeScreen(onNavigate = { backStack.add(Routes.Screen1) })
                 }
+
+                entry<Routes.Screen1> {
+                    Screen1(onBack = { backStack.removeLastOrNull() })
+                }
+
 
             }
         )
     }
 
-    }
-
+}
